@@ -29,6 +29,9 @@ type Route struct {
 
 	// config possibly passed in from `Router`
 	routeConf
+
+	// doc documentation string
+	doc string
 }
 
 // SkipClean reports whether path cleaning is enabled for this route via
@@ -130,6 +133,15 @@ func (r *Route) HandlerFunc(f func(http.ResponseWriter, *http.Request)) *Route {
 // GetHandler returns the handler for the route, if any.
 func (r *Route) GetHandler() http.Handler {
 	return r.handler
+}
+
+func (r *Route) Doc(doc string) *Route {
+	r.doc = doc
+	return r
+}
+
+func (r *Route) GetDoc() string {
+	return r.doc
 }
 
 // Name -----------------------------------------------------------------------
