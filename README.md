@@ -8,7 +8,7 @@
 
 ---
 
-⚠️ **[The Gorilla Toolkit is looking for a new maintainer](https://github.com/gorilla/mux/issues/659)**
+**The Gorilla project has been archived, and is no longer under active maintainenance. You can read more here: https://github.com/gorilla#gorilla-toolkit**
 
 ---
 
@@ -576,7 +576,7 @@ func (amw *authenticationMiddleware) Middleware(next http.Handler) http.Handler 
 r := mux.NewRouter()
 r.HandleFunc("/", handler)
 
-amw := authenticationMiddleware{}
+amw := authenticationMiddleware{tokenUsers: make(map[string]string)}
 amw.Populate()
 
 r.Use(amw.Middleware)
